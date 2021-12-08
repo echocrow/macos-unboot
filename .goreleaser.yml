@@ -17,3 +17,17 @@ archives:
     replacements:
       darwin: Darwin
       amd64: x86_64
+
+brews:
+  - ids: [darwin-build]
+    tap:
+      owner: echocrow
+      name: homebrew-tap
+    folder: Formula
+
+    homepage: '{{ replace .GitURL ".git" "" }}'
+    description: A simple CLI to shutdown or restart macOS.
+    license: MIT
+
+    test: |
+      system "#{bin}/unboot", "-version"
