@@ -3,6 +3,8 @@ package unboot
 import (
 	"fmt"
 	"os/exec"
+
+	"github.com/echocrow/macos-unboot/pkg/enter"
 )
 
 const (
@@ -20,6 +22,8 @@ func unboot(loginwindowEvent string) error {
 	if err != nil {
 		return err
 	}
+
+	enter.Tap()
 
 	return nil
 }
