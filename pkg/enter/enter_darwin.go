@@ -6,6 +6,7 @@ import "C"
 
 import (
 	"fmt"
+	"time"
 )
 
 const returnKey = C.kVK_Return
@@ -32,6 +33,7 @@ func tap(key int) error {
 
 	loc := C.CGEventTapLocation(C.kCGHIDEventTap)
 	C.CGEventPost(loc, down)
+	time.Sleep(time.Millisecond)
 	C.CGEventPost(loc, up)
 
 	return nil
